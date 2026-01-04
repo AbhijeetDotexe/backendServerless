@@ -2,9 +2,12 @@
 import { ServerlessFunction, ExecutionLog } from "./schema.js";
 import { v4 as uuidv4 } from 'uuid';
 import openwhisk from "openwhisk";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const ow = openwhisk({
-  apihost: process.env.WHISK_APIHOST || "http://172.17.0.1:3233",
+  apihost: process.env.WHISK_APIHOST,
   api_key: process.env.WHISK_AUTH ||
     "23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP",
   namespace: process.env.OPENWHISK_NAMESPACE || 'guest'
@@ -212,7 +215,7 @@ export const executeFunction = async (uuid, input = {}, userId = null) => {
     const actionName = `func-${uuid.replace(/-/g, '')}-${Date.now()}`;
     
     // ✅ Generate web action URL
-    const apihost = process.env.WHISK_APIHOST || "http://172.17.0.1:3233";
+    const apihost = process.env.WHISK_APIHOST;
     const cleanApiHost = apihost.replace(/(^\w+:|^)\/\//, '');
     const webActionUrl = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
 
