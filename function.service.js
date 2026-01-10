@@ -217,7 +217,7 @@ export const executeFunction = async (uuid, input = {}, userId = null) => {
     // ✅ Generate web action URL
     const apihost = process.env.WHISK_APIHOST;
     const cleanApiHost = apihost.replace(/(^\w+:|^)\/\//, '');
-    const webActionUrl = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
+    const webActionUrl = `https://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
 
     // Create the action
     const actionParams = {
