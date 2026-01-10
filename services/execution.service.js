@@ -684,8 +684,8 @@ export const runCodeOnWhisk = async (code, input = {}, userId = null, tempUuid =
     // Generate web action URL
     const apihost = process.env.WHISK_APIHOST || "http://172.17.0.1:3233";
     const cleanApiHost = apihost.replace(/(^\w+:|^)\/\//, '');
-    const webActionUrl = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}.json`;
-    const webActionUrlPlain = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
+    const webActionUrl = `https://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}.json`;
+    const webActionUrlPlain = `https://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
     
     // Create the action with zip file
     const actionParams = {

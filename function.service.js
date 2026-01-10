@@ -307,7 +307,7 @@ export const executeFunction = async (uuid, input = {}, userId = null) => {
       status,
       executionTime: `${executionTime}ms`,
       result,
-      webActionUrl: `${webActionUrl}.json`, // ✅ This is what you need!
+      webActionUrl: `${webActionUrl}.json`,
       logId: executionLog._id
     };
 
