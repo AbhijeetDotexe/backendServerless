@@ -393,8 +393,8 @@ export const executeFunction = async (uuid, input = {}, userId = null, keepActio
     // Generate web URL
     const apihost = process.env.WHISK_APIHOST || "http://172.17.0.1:3233";
     const cleanApiHost = apihost.replace(/(^\w+:|^)\/\//, '');
-    const webActionUrl = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}.json`;
-    const webActionUrlPlain = `http://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
+    const webActionUrl = `https://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}.json`;
+    const webActionUrlPlain = `https://${cleanApiHost}/api/v1/web/${namespace}/${packageName}/${actionName}`;
     
     console.log(`🌐 Web Action URL: ${webActionUrl}`);
     
